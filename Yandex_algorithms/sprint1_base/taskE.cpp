@@ -1,6 +1,6 @@
 #include "solution.h"
 
-void solution(Node* head)
+void solution( Node* head )
 {
 	while( head->next )
     {
