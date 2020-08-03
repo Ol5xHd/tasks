@@ -14,6 +14,7 @@ struct Stack
 {
     Node* mTop;
     int mMax;
+    stringstream mResult;
 
     void Push( int value )
     {
@@ -54,7 +55,8 @@ struct Stack
     {
         if( !mTop )
         {
-            cout << "error" << endl;
+            // cout << "error" << endl;
+            mResult << "error" << endl;
         }
         else
         {
@@ -71,9 +73,11 @@ struct Stack
     void GetMax()
     {
         if( !mTop )
-            cout << "None" << endl;
+            // cout << "None" << endl;
+            mResult << "None" << endl;
         else
-            cout << mMax << endl;
+            // cout << mMax << endl;
+            mResult << mMax << endl;
     }
 };
 
@@ -106,6 +110,8 @@ int main()
             stack->GetMax();
         }
     }
+
+    cout << stack->mResult.str();
 
     return 0;
 }
