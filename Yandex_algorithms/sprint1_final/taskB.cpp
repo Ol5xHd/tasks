@@ -1,15 +1,4 @@
-#include <iostream>
-#include <memory>
-
-using namespace std;
-
-struct Node
-{
-    Node() {}
-    Node( shared_ptr<Node> _next ) : next( _next ) {}
-
-    weak_ptr<Node> next;
-};
+#include "solution.h"
 
 bool HasCycle( std::shared_ptr<Node> head )
 {
@@ -49,38 +38,4 @@ bool HasCycle( std::shared_ptr<Node> head )
     }
 
     return has_cycle;
-}
-
-int main()
-{
-    std::shared_ptr<Node> n3( new Node() );
-    std::shared_ptr<Node> n2( new Node( n3 ) );
-    std::shared_ptr<Node> n1( new Node( n2 ) );
-    n3->next = n1;
-
-    std::shared_ptr<Node> n32( new Node() );
-    std::shared_ptr<Node> n22( new Node( n32 ) );
-    std::shared_ptr<Node> n12( new Node( n22 ) );
-
-    std::shared_ptr<Node> n33( new Node() );
-    std::shared_ptr<Node> n23( new Node( n33 ) );
-    std::shared_ptr<Node> n13( new Node( n23 ) );
-    n33->next = n23;
-
-    if( HasCycle( n1 ) )
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
-
-    if( HasCycle( n12 ) )
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
-
-    if( HasCycle( n13 ) )
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
-
-    return 0;
 }
