@@ -1,3 +1,8 @@
+/* Махов Александр, Алгоритмы, Когорта 03
+ * задача A. Калькулятор
+ * ID успешной посылки - 33744709
+ */
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -10,7 +15,7 @@ using namespace std;
  */
 struct Node
 {
-    Node( int value ) : mValue( value ) {}
+    Node( int value ) : mValue( value ), mNext( nullptr ) {}
     Node( int value, Node* next ) : mValue( value ), mNext( next ) {}
 
     int mValue; // значение элемента
@@ -71,6 +76,8 @@ struct Stack
             Node* to_delete = mTop;
             mTop = mTop->mNext;
             delete to_delete;
+
+            --mSize;
         }
 
         return res;

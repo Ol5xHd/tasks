@@ -1,3 +1,8 @@
+/* Махов Александр, Алгоритмы, Когорта 03
+ * задача B. Циклы
+ * ID успешной посылки - 33744646
+ */
+
 #include "solution.h"
 
 bool HasCycle( std::shared_ptr<Node> head )
