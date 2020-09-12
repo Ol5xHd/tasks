@@ -1,4 +1,9 @@
-#ifndef SOLUTION_TREE_H
-#define SOLUTION_TREE_H
+#pragma once
 
-#endif // SOLUTION_TREE_H
+struct Node {
+    Node( int _value, Node* _left, Node* _right ) : value( _value ), left( _left ), right( _right ) {}
+
+    int value;
+    const Node* left = nullptr;
+    const Node* right = nullptr;
+};
