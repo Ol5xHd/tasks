@@ -1,7 +1,7 @@
 /**
  * Махов Александр, Алгоритмы, Когорта 03
  * спринт 3, задача A. Большое число
- * ID успешной посылки - 34028291
+ * ID успешной посылки - 34114387
  */
 
 #include <iostream>
@@ -26,17 +26,30 @@ int main() {
     for( UShort i = 0; i < count; ++i )
         in_sstream >> numbers[ i ];
 
+    // лямбда сравнения двух строк одинаковой длины, возвращает true, если left > right
+    // можно было бы обойтись и стандартной перегрузкой ператора > для строк, но реализовал свой вариант для наглядности
+    auto leftBiggerThanRight = []( const string &left, const string &right ) -> bool {
+        bool left_bigger = false;
+        for( size_t i = 0; i < left.size(); ++i ) {
+            if( left[ i ] > right[ i ] ) {
+                left_bigger = true;
+                break;
+            }
+            else if( left[ i ] < right[ i ] ) {
+                break;
+            }
+        }
+        return left_bigger;
+    };
+
     // упорядочим числа в векторе таким образом, чтобы два любых числа при последовательной записи давали наибольший результат
-    sort( numbers.begin(), numbers.end(), []( const string &left, const string &right ) {
+    sort( numbers.begin(), numbers.end(), [ &leftBiggerThanRight ]( const string &left, const string &right ) {
         // если строка AB > строки BA, то тогда считаем, что A > B
         // эта метрика обладает транзитивностью, т.е. A > B > C => A > C, но доказать это я не могу)))
         string left_right = left + right;
         string right_left = right + left;
         // упорядочиваем по убыванию, т.к. хотим максимизировать результат
-        if( left_right > right_left ) // => left > right
-            return true;
-        else
-            return false;
+        return leftBiggerThanRight( left_right, right_left ); // left_right > right_left => left > right
     } );
 
     for( auto it : numbers )

@@ -1,0 +1,4 @@
+#ifndef SOLUTION_TREE_H
+#define SOLUTION_TREE_H
+
+#endif // SOLUTION_TREE_H
