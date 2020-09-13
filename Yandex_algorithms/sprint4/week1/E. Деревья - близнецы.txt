@@ -1,0 +1,88 @@
+E. Деревья - близнецы
+
+Ограничение времени 	1 секунда
+Ограничение памяти 		64Mb
+Ввод 	стандартный ввод или input.txt
+Вывод 	стандартный вывод или output.txt
+
+Евлампии на день рождения подарили два дерева. Кондратий сказал, что они совершенно одинаковые. Но, по мнению Евлампии, они отличаются.
+Помогите разрешить семейный спор!
+
+ +-(1)-+    +-(1)-+
+ |     |    |     |
+ v     v    v     v
+(2)   (3)  (2)   (3)
+
+True
+
+ +-(1)    (1)-+
+ |            |
+ v            v
+(3)          (3)
+
+False
+
+Формат ввода
+На вход подаются корни двух деревьев.
+Класс, представляющий узел дерева.
+Python:
+class Node:  
+    def __init__(self, value, left=None, right=None):  
+        self.value = value  
+        self.right = right  
+        self.left = left
+
+Ваша функция должна иметь сигнатуру solution(root1: Node, root2: Node) -> bool.
+
+С++:
+struct Node{  
+  int value;  
+  const Node* left = nullptr;  
+  const Node* right = nullptr;  
+};  
+bool Solution(const Node* root1, const Node* root2);
+
+Нужно подключить solution_tree.h
+
+Go:
+type TNode struct {  
+value int  
+left  *TNode  
+right *TNode  
+}
+
+Ваша функция должна иметь сигнатуру Solution(root1 *TNode, root2 *TNode) bool.
+
+JS:
+class CNode {  
+    constructor(value) {  
+        this.value = value;  
+        this.left = null;  
+        this.right = null;  
+    }  
+}
+
+Ваша функция должна иметь сигнатуру Solution :: (CNode, CNode) -> bool).
+
+Java:
+Файл должен содержать public class Solution с public static String treeSolution(Node... heads)
+class Node {  
+    int value;  
+    Node left;  
+    Node right;  
+ 
+    Node(int value) {  
+        this.value = value;  
+        right = null;  
+        left = null;  
+    }  
+}  
+Две головы деревьев, которые подаются на вход функции, записаны в массиве.
+
+Формат вывода
+Функция должна вернуть True если деревья являются близнецами. Иначе - False.
+
+Примечания
+Решение нужно отправлять в виде файла с расширением соответствующем вашему языку программирования. Нужно выбирать компилятор make.
+Для Java файл должен называться Solution.java
+Для остальных языков программирования это имя использовать нельзя (имя solution тоже). 
