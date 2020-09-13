@@ -1,0 +1,80 @@
+C. Генеалогическое древо
+
+Ограничение времени 	1 секунда
+Ограничение памяти 		64Mb
+Ввод 	стандартный ввод или input.txt
+Вывод 	стандартный вывод или output.txt
+
+Гуляя по вилле Кондратия, ребята нашли генеалогическое древо его семьи. Им стало интересно, сколько лет прожили члены семьи разных поколений.
+Помогите ребятам это выяснить.
+
+    +---(36)----+
+    |           |
+    v           v
+ +-(28)-+    +-(54)
+ |      |    |
+ v      v    v
+(32)   (17) (21)
+
+Ответ: [[36], [28, 54], [32, 17, 21]]
+
+Формат ввода
+В этом задании нужно реализовать функцию. На вход она принимает голову дерева.
+Python:
+class Node:  
+    def __init__(self, value, left=None, right=None):  
+        self.value = value  
+        self.right = right  
+        self.left = left
+
+Ваша функция должна иметь сигнатуру solution(root: Node) -> int[][].
+
+С++:
+struct Node{  
+  int value;  
+  const Node* left = nullptr;  
+  const Node* right = nullptr;  
+};  
+std::vector<std::vector<int>> Solution(const Node* root);
+
+Нужно подключить solution_tree.h
+
+Go:
+type TNode struct {  
+value int  
+left  *TNode  
+right *TNode  
+}
+
+Ваша функция должна иметь сигнатуру Solution(root *TNode) [][]int.
+
+JS:
+class CNode {  
+    constructor(value) {  
+        this.value = value;  
+        this.left = null;  
+        this.right = null;  
+    }  
+}
+
+Ваша функция должна иметь сигнатуру Solution(root).
+
+Java:
+Файл должен содержать public class Solution с public static List<List<String» treeSolution(Node... head)
+class Node {  
+    int value;  
+    Node left;  
+    Node right;  
+ 
+    Node(int value) {  
+        this.value = value;  
+        right = null;  
+        left = null;  
+    }  
+}
+
+Формат вывода
+Функция должна вернуть список количеств лет, сколько прожили члены его семьи разных поколений.
+
+Примечания
+Решение нужно отправлять в виде файла с расширением соответствующем вашему языку программирования. Нужно выбирать компилятор make.
