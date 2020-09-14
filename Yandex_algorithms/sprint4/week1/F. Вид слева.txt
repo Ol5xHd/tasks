@@ -1,0 +1,82 @@
+F. Вид слева
+Ограничение времени 	1 секунда
+Ограничение памяти 		64Mb
+Ввод 	стандартный ввод или input.txt
+Вывод 	стандартный вывод или output.txt
+
+Прабабке Кондратия уже 182 года. Домна Тарасовна часто любит выходить в сад погулять. Сегодня, выходя на прогулку, она забыла очки, без которых почти ничего не видит. Но она может прекрасно ориентироваться при помощи трости. Ей она и определила, что приближается к дереву. Что бы увидела баба Домна, если бы не забыла очки?
+
+    +------(1)------+
+    |               |
+    v               v
+ +-(2)-+        +--(3)--+
+ |     |        |       |
+ v     v        v       v
+(4)   (5)    +-(8)   +-(10)
+             |       |
+			(17)    (14)
+
+Ответ: [1, 2, 4, 17]
+
+Формат ввода
+Напишите функцию, которая определяет, что перед бабушкой Кондратия.
+Python:
+class Node:  
+    def __init__(self, value, left=None, right=None):  
+        self.value = value  
+        self.right = right  
+        self.left = left
+
+Ваша функция должна иметь сигнатуру solution(root: Node) -> int[].
+
+С++:
+struct Node{  
+  int value;  
+  const Node* left = nullptr;  
+  const Node* right = nullptr;  
+};  
+vector<int> Solution(const Node* root);
+
+Нужно подключить solution_tree.h
+
+Go:
+type TNode struct {  
+value int  
+left  *TNode  
+right *TNode  
+}
+
+Ваша функция должна иметь сигнатуру Solution(root *TNode) []int.
+
+JS:
+class CNode {  
+    constructor(value) {  
+        this.value = value;  
+        this.left = null;  
+        this.right = null;  
+    }  
+}
+
+Ваша функция должна иметь сигнатуру Solution :: CNode -> int[].
+
+Java:
+Файл должен содержать public class Solution с public static List<String> treeSolution(Node head)
+class Node {  
+    int value;  
+    Node left;  
+    Node right;  
+ 
+    Node(int value) {  
+        this.value = value;  
+        right = null;  
+        left = null;  
+    }  
+}
+
+Формат вывода
+Функция должна вернуть список вершин дерева, которые видны, если Домна Тарасовна подошла к нему слева.
+
+Примечания
+Решение нужно отправлять в виде файла с расширением соответствующем вашему языку программирования. Нужно выбирать компилятор make.
+Для Java файл должен называться Solution.java
+Для остальных языков программирования это имя использовать нельзя (имя solution тоже). 
